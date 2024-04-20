@@ -1,0 +1,153 @@
+﻿<Window x:Class="group_project.AddAppointmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:group_project"
+        mc:Ignorable="d"
+        Title="AddAppointmentWindow" Height="600" Width="600">
+    <Window.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        
+        <Style x:Key="LongTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Height" Value="120" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <WrapPanel>
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="50,50,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Width="600">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="330"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Date:" Style="{StaticResource LabelStyle}"/>
+                            <DatePicker Grid.Column="1" x:Name="datePicker" Text="{Binding Date}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Label Grid.Column="2" Content="Time:" Style="{StaticResource LabelStyle}"/>
+                            <ComboBox Grid.Column="3" x:Name="timeCbox" Text="{Binding Time}" 
+                                      Height="25" Width="100" IsEditable="True"
+                                      HorizontalAlignment="Left"
+                                      HorizontalContentAlignment="Center" 
+                                      VerticalContentAlignment="Center"/>
+                        </Grid>                        
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="450"/>                                
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="In Office?" Style="{StaticResource LabelStyle}"/>
+                            <ComboBox Grid.Column="1" x:Name="inOfficeCbox" Text="{Binding InOffice}" SelectionChanged="inOfficeCbox_SelectionChanged"  
+                                      Height="30" Width="50" IsEditable="True"
+                                      HorizontalAlignment="Left"
+                                      HorizontalContentAlignment="Center"
+                                      VerticalContentAlignment="Center"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Client Name:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Grid.Column="1" x:Name="cName" Text="{Binding ClientName}" Style="{StaticResource TextBoxStyle}"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Patient Species:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Grid.Column="1" x:Name="species" Text="{Binding Species}" Style="{StaticResource TextBoxStyle}"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Appointment Address:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Grid.Column="1" x:Name="address" Text="{Binding Address}" Style="{StaticResource TextBoxStyle}"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Appointment Type:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Grid.Column="1" x:Name="type" Text="{Binding Type}" Style="{StaticResource TextBoxStyle}"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="6" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Patient Name:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Grid.Column="1" x:Name="pName" Text="{Binding PatientName}" Style="{StaticResource TextBoxStyle}"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="7" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="450"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Patient Notes:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Grid.Column="1" x:Name="note" Text="{Binding Note}" Style="{StaticResource LongTextBoxStyle}"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="8" Orientation="Horizontal" Margin="0,20,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="300"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" x:Name="confirmBtn" Content="Confirm" Click="ConfirmButton_Click" Margin="5" Width="100"/>
+                            <Button Grid.Column="1" Content="Cancel" Click="CancelButton_Click" Margin="5" Width="100"/>
+                        </Grid>                        
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Window>
